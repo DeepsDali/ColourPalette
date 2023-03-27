@@ -1,0 +1,30 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  background-color: #183a37;
+  min-height: 100vh;
+  color: #cbc0d3;
+  font-size: 1em;
+  width: 100vw;
+}
+.colour {
+  height: 20vh;
+}
+.section {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+@media only screen and (min-width: 768px) {
+  .section {
+    flex-direction: row;
+  }
+  .colour {
+    width: 20vw;
+    height: 100vh;
+  }
+}
