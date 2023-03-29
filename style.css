@@ -4,24 +4,42 @@
   padding: 0;
 }
 body {
-  background-color: #183a37;
   min-height: 100vh;
-  color: #cbc0d3;
+  color: #83798b;
   font-size: 1em;
+  width: 100vw;
+  font-family: "Inter", sans-serif;
+}
+.menu {
+  padding: 10px;
+  top: 0;
+  position: fixed;
+  background-color: aliceblue;
   width: 100vw;
 }
 .colour {
   height: 20vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.section {
+.colour-code {
+  font-size: 2em;
+}
+.container {
+  width: 100wv;
+  color: black;
+  margin: auto;
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
 }
 
 @media only screen and (min-width: 768px) {
-  .section {
+  .container {
     flex-direction: row;
+
+    width: 100vw;
   }
   .colour {
     width: 20vw;
