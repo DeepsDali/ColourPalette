@@ -4,32 +4,36 @@
   padding: 0;
 }
 body {
-  min-height: 100vh;
   color: #83798b;
   font-size: 1em;
   width: 100vw;
   font-family: "Inter", sans-serif;
+  min-height: 100vh;
 }
 .menu {
   padding: 10px;
   top: 0;
-  position: fixed;
+  /* position: fixed; */
   background-color: aliceblue;
   width: 100vw;
 }
-.colour {
-  height: 20vh;
+.colour-div {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
+  flex-direction: column;
+  height: 18vh;
 }
 .colour-code {
-  font-size: 2em;
+  font-size: 1.5em;
+  font-weight: bold;
+  color: white;
 }
+
 .container {
-  width: 100wv;
+  width: 100vw;
   color: black;
-  margin: auto;
+
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
@@ -38,11 +42,11 @@ body {
 @media only screen and (min-width: 768px) {
   .container {
     flex-direction: row;
-
-    width: 100vw;
+    min-height: 93vh;
   }
-  .colour {
+  .colour-div {
     width: 20vw;
-    height: 100vh;
+    min-height: 93vh;
+    justify-content: center;
   }
 }
