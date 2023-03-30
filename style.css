@@ -28,17 +28,44 @@ body {
   font-size: 1.5em;
   font-weight: bold;
   color: white;
+  border: none;
+  padding: 10px;
+  background-color: transparent;
+  cursor: pointer;
+  border-radius: 10px;
 }
 
+.colour-code:hover {
+  background-color: rgba(140, 138, 138, 0.162);
+}
 .container {
   width: 100vw;
   color: black;
-
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
 }
+.tooltip {
+  position: relative;
+}
+.tooltip::before {
+  background-color: Black;
 
+  border-radius: 5px;
+  color: white;
+  content: attr(data-title);
+  display: none;
+
+  font-size: 0.5em;
+  padding: 5px;
+  position: absolute;
+  bottom: 50px;
+  left: 5px;
+  z-index: 1;
+}
+.tooltip:hover::before {
+  display: block;
+}
 @media only screen and (min-width: 768px) {
   .container {
     flex-direction: row;
