@@ -38,6 +38,17 @@ console.log(luminance(255, 255, 255) + 0.05);
 console.log(luminance(224, 16, 16) + 0.05);
 console.log(luminance(240, 239, 239) + 0.05);
 
+//function to change text colour based on contrast ratio
+let changeColor = (colour, text) => {
+  let rgbColor = hexToRgb(colour);
+  let selectedColorLuminance =
+    luminance(rgbColor.r, rgbColor.g, rgbColor.b) + 0.05;
+  let contrastRatio = 1.05 / selectedColorLuminance;
+  contrastRatio > 3
+    ? (text.style.color = "#FFFFFF")
+    : (text.style.color = "#000000");
+};
+
 //assign variables
 
 let div1 = document.querySelector("#clr1");
@@ -59,13 +70,7 @@ let generateRandomColour = (div, text) => {
   let textsliced = divClr.slice(1);
   text.innerHTML = `${textsliced}`;
   //   change text colour
-  let rgbColor = hexToRgb(divClr);
-  let selectedColorLuminance =
-    luminance(rgbColor.r, rgbColor.g, rgbColor.b) + 0.05;
-  let contrastRatio = 1.05 / selectedColorLuminance;
-  contrastRatio > 3
-    ? (text.style.color = "#FFFFFF")
-    : (text.style.color = "#000000");
+  changeColor(divClr, text);
 };
 
 generateRandomColour(div1, text1);
@@ -87,27 +92,17 @@ document.addEventListener("keyup", (event) => {
   }
 });
 //
-let colorPickerButton = document.getElementById("text1");
-let colorInput = document.getElementById("color-picker");
+text1 = document.getElementById("text1");
+let colorInput = document.getElementById("color-picker1");
 
-colorPickerButton.addEventListener("click", function () {
+text1.addEventListener("click", function () {
   colorInput.click();
 });
 
 colorInput.addEventListener("input", () => {
   let selectedColour = colorInput.value;
-  console.log(hexToRgb(selectedColour));
-  let rgbColor = hexToRgb(selectedColour);
-  console.log(rgbColor);
-  let selectedColorLuminance =
-    luminance(rgbColor.r, rgbColor.g, rgbColor.b) + 0.05;
-  console.log(selectedColorLuminance);
-  let contrastRatio = 1.05 / selectedColorLuminance;
-  console.log(`cr = ${contrastRatio}`);
-  contrastRatio > 3
-    ? (text1.style.color = "#FFFFFF")
-    : (text1.style.color = "#000000");
   div1.style.backgroundColor = selectedColour;
   text1sliced = selectedColour.slice(1);
   text1.innerHTML = `${text1sliced.toUpperCase()}`;
+  changeColor(selectedColour, text1);
 });
