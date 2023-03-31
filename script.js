@@ -55,3 +55,26 @@ document.addEventListener("keyup", (event) => {
     generateRandomColour();
   }
 });
+
+let colorPickerButton = document.getElementById("text1");
+let colorInput = document.getElementById("color-picker");
+
+colorPickerButton.addEventListener("click", function () {
+  colorInput.click();
+  let selectedColour = colorPicker.value;
+  console.log(selectedColour);
+  div1.style.backgroundColor = selectedColour;
+});
+
+colorInput.addEventListener("input", () => {
+  let selectedColour = colorInput.value;
+  div1.style.backgroundColor = selectedColour;
+  text1sliced = selectedColour.slice(1);
+  text1.innerHTML = `${text1sliced}`;
+});
+
+// let changeColour = () => {
+//   let colour = document.querySelector("#inputColour1").value;
+//   div1.style.backgroundColor = colour;
+//   text1.innerHTML = `${colour}`;
+// };
