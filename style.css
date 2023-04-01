@@ -66,6 +66,12 @@ body {
 .tooltip:hover::before {
   display: block;
 }
+.colour-input {
+  position: absolute;
+  bottom: 50px;
+  left: 5px;
+  z-index: 1;
+}
 @media only screen and (min-width: 768px) {
   .container {
     flex-direction: row;

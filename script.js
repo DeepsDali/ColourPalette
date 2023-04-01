@@ -61,7 +61,11 @@ let div4 = document.querySelector("#clr4");
 let text4 = document.querySelector("#text4");
 let div5 = document.querySelector("#clr5");
 let text5 = document.querySelector("#text5");
-
+let colorInput1 = document.querySelector("#color-picker1");
+let colorInput2 = document.querySelector("#color-picker2");
+let colorInput3 = document.querySelector("#color-picker3");
+let colorInput4 = document.querySelector("#color-picker4");
+let colorInput5 = document.querySelector("#color-picker5");
 // console.log(randColor());
 
 let generateRandomColour = (div, text) => {
@@ -91,18 +95,29 @@ document.addEventListener("keyup", (event) => {
     generateRandomColour(div5, text5);
   }
 });
-//
-text1 = document.getElementById("text1");
-let colorInput = document.getElementById("color-picker1");
 
-text1.addEventListener("click", function () {
-  colorInput.click();
-});
+// textBtns.forEach((textBtn, i) => {
+//   let colorInput = textBtn.nextElementSibling;
+//   textBtn.addEventListener("click", () => {
+//     colorInput.click(i);
+//   });
+// });
 
-colorInput.addEventListener("input", () => {
-  let selectedColour = colorInput.value;
-  div1.style.backgroundColor = selectedColour;
-  text1sliced = selectedColour.slice(1);
-  text1.innerHTML = `${text1sliced.toUpperCase()}`;
-  changeColor(selectedColour, text1);
-});
+let generateUserColour = (text, colorInput, div) => {
+  text.addEventListener("click", () => {
+    colorInput.click();
+
+    colorInput.addEventListener("input", () => {
+      let selectedColour = colorInput.value;
+      div.style.backgroundColor = selectedColour;
+      textsliced = selectedColour.slice(1);
+      text.innerHTML = `${textsliced.toUpperCase()}`;
+      changeColor(selectedColour, text);
+    });
+  });
+};
+generateUserColour(text1, colorInput1, div1);
+generateUserColour(text2, colorInput2, div2);
+generateUserColour(text3, colorInput3, div3);
+generateUserColour(text4, colorInput4, div4);
+generateUserColour(text5, colorInput5, div5);
